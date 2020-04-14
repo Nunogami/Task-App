@@ -53,3 +53,27 @@ $ rails server
 * Ruby
 * Rails
 * Git(HTTPSからSSH通信へ変更)
+
+
+  <ul>
+    <li>ルートURLに対応したトップページ（このページです）</li>
+    <li>ユーザー機能
+      <ol>
+        <li>名前・メールアドレス・パスワード・ログイン認証用のカラムを持ったUserモデル</li>
+        <li>ユーザー新規登録と対応したページ</li>
+      </ol>
+    </li>
+    <li>ログイン機能
+      <ol>
+        <li>セッションによる一時的ログイン機能</li>
+        <li>Cookiesによる永続的ログイン機能</li>
+      </ol>
+    </li>
+  </ul>
+  <p>実質【勤怠チュートリアル第７章】までの機能を持ったアプリケーションとなります。</p>
+  
+          <% if current_user.admin? && !current_user?(user) %>
+            <%= link_to "削除", user, method: :delete,
+                data: { confirm: "削除してよろしいですか？" },
+                class: "btn btn-danger" %>
+          <% end %>

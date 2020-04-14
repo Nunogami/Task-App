@@ -61,15 +61,41 @@ p {
   margin-right: 10px;
   font-size: 1.7em;
   color: #fff;
-  text-transform: uppercase;
+  font-style: italic;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
 }
 
 #logo:hover {
-  color: #fff;
+  color: silver;
   text-decoration: none;
+}
+
+#header-list {
+    color: white;
+    font-weight: bold;
+}
+
+#header-list:hover {
+  color: silver;
+  text-decoration: none;
+}
+
+#dropdown-title {
+    color: white;
+    font-weight: bold;
+    background-color: teal;
+}
+
+#dropdown-title:hover {
+  color: silver;
+  text-decoration: none;
+}
+
+li .dropdown-header {
+    background-color: rgba(200,200,200,0.5);
+    font-weight: bold;
 }
 
 /* デバッグウインドウ */
@@ -99,4 +125,15 @@ p {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+/* トップ */
+
+#top-main-title {
+    font-style: italic;
+    font-weight: bold;
+}
+
+#top-main {
+    background-color: rgba(255,255,255,0);
 }
