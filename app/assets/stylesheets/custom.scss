@@ -137,3 +137,36 @@ li .dropdown-header {
 #top-main {
     background-color: rgba(255,255,255,0);
 }
+
+/* タスク一覧 */
+
+#pull-right {
+  float: right !important;
+}
+
+#task-name {
+    font-size: 1.8rem;
+}
+
+#table-tasks th {
+    vertical-align: middle;
+}
+
+#table-tasks td {
+    vertical-align: middle;
+}
+
+#task-created{
+  
+  // font-size: 1.8rem;
+}
+
+#table-task th {
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.btn-form {
+    margin-top: 10px;
+}

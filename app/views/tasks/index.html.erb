@@ -1,0 +1,38 @@
+<% provide(:title, current_user.name ) %>
+<div class="container">
+  <h1><%= "#{current_user.name}のタスク一覧" %></h1>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table class="table table-condensed table-hover" id="table-tasks">
+        
+          <a id="pull-right">
+            <%= link_to "タスク新規作成", tasks_new_path, class: "btn btn-lg btn-primary", id: "pull-right" %>
+          </a>  
+    
+        <thead>
+          <tr>
+            <th>名称</th>
+            <th id="task-created">作成日</th>
+            <th></th>
+          </tr>
+        </thead>
+    
+        <% @tasks.each do |task| %>
+          <tr>
+            <% if current_user.id == task.user_id %>
+            <td><%= link_to task.task_name,task_path(task.id), id: "task-name" %></td>
+            <td id="task-created"><%= l task.created_at %></td>
+            
+            <td>
+              <%= link_to "編集", edit_task_path(task.id), class: "btn btn-md btn-success" %>
+              <%= link_to "削除", destroy_task_path(task.id), method: :post, class: "btn btn-md btn-danger" %>
+            </td>
+            <% end %>
+          </tr>
+        <% end %>
+    
+        
+      </table>
+    </div>
+  </div>
+</div>

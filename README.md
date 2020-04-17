@@ -77,3 +77,36 @@ $ rails server
                 data: { confirm: "削除してよろしいですか？" },
                 class: "btn btn-danger" %>
           <% end %>
+          
+C1
+String (文字列が２５５字まで)
+名前
+住所
+電話番号
+会社名
+Text　(それ以上)
+コンテンツ
+コメント
+段落
+
+rails g model Task task_name:string task_description:text user:references
+rails db:migrate
+C2
+has_many :tasks, dependent: :destroy
+
+rails c -s
+task = Task.new
+task.valid?
+task.errors.full_messages
+C3
+rails g controller tasks index
+
+C4
+C5
+  # 作成日を指定のフォーマットで指定  
+  def format_basic_info(time)
+    format("%.2f", ((time.hour * 60) + time.min) / 60.0)
+  end
+C6
+C7
+C8
