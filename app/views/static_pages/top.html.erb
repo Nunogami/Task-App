@@ -16,10 +16,10 @@
     
       <% if !logged_in? %>
   
-        <%= f.label :email, class: "label-login" %>
+        <%= f.label :メールアドレス, class: "label-login" %>
         <%= f.email_field :email, class: 'form-control' %>
   
-        <%= f.label :password, class: "label-login" %>
+        <%= f.label :パスワード, class: "label-login" %>
         <%= f.password_field :password, class: 'form-control' %>
         
         <%= f.label :remember_me, class: "checkbox inline checkbox-login", for: "remember-me" do %>
@@ -29,10 +29,10 @@
   
         <%= f.submit "ログイン", class: "btn btn-primary btn-block btn-login" %>
       <% else %>
-        <%= f.label :email, class: "label-login" %>
+        <%= f.label :メールアドレス, class: "label-login" %>
         <%= f.email_field :email, :readonly => true, class: 'form-control' %>
   
-        <%= f.label :password, class: "label-login" %>
+        <%= f.label :パスワード, class: "label-login" %>
         <%= f.password_field :password, :readonly => true, class: 'form-control' %>
         
         <%= f.submit "ログイン状態です", :disabled => true, class: "btn btn-primary btn-block btn-login" %>

@@ -20,8 +20,13 @@ class TasksController < ApplicationController
     @task = Task.new(task_name: params[:task_name],
                      task_description: params[:task_description],
                      user_id: @current_user.id)
-    @task.save
+    if @task.save
+      flash[:success] = '新規作成に成功しました。'
+    else
+      flash[:danger] = '新規作成に失敗しました。'
+    end
     redirect_to tasks_index_url
+    
   end
   
   def show
@@ -36,8 +41,12 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.task_name = params[:task_name]
     @task.task_description = params[:task_description]
-    @task.save
-    redirect_to tasks_index_url
+    if @task.save
+      flash[:success] = '更新に成功しました。'
+      redirect_to tasks_index_url
+    else
+      render :edit 
+    end
   end
   
   def destroy
