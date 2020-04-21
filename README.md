@@ -115,4 +115,17 @@ C10
 C11
 C12
 C13
-    <%= Rink.auto_link(@task.task_description, :all, 'target="_blank"') %>
+    <%= raw Rink.auto_link(@task.task_description, :all, 'target="_blank"') %>
+D1
+D2
+D4
+D5
+D6
+D7
+
+users = User.order(:created_at).take(3)
+50.times do
+    name = "タスク-#{n+1}",
+    description = "詳細-#{n+1}"
+    users.each { |user| user.tasks.create!(task_name: name, task_description: description ) }
+end

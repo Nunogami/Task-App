@@ -10,7 +10,7 @@ class TasksController < ApplicationController
   end
   
   def index
-    @tasks = Task.all
+    @tasks = Task.all.order(id: "DESC")
   end
   
   def new
