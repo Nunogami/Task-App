@@ -1,13 +1,18 @@
 <% provide(:title, 'Edit Task') %>
-<h1>タスク新規作成</h1>
+<h1>タスク更新</h1>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
       <%= form_tag update_task_path do %>
+
       <form>
-        <% @task.errors.full_messages.each do |message| %>
-          <div id="error_explanation">
-            <li><%= message %></li>
+        <% if @task.errors.any? %>
+          <div class="alert alert-warning">
+            <ul>
+              <% @task.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
           </div>
         <% end %>
         <label class="label-form" for="task_name">名称</label>

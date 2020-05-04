@@ -1,0 +1,14 @@
+<%= form_with(model: @task, local: true) do |f| %>
+  <%= render 'shared/task_error_messages', object: @task %>
+
+  <%= f.label :task_name, class: "label-#{yield(:class_text)}" %>
+  <%= f.text_field :task_name, class: "form-control" %>
+
+  <%= f.label :task_description, class: "label-#{yield(:class_text)}" %>
+  <%= f.text_field :task_description, class: "form-control", rows: 5 %>
+
+
+
+  <%= f.submit yield(:button_text), class: "btn btn-md btn-primary btn-block btn-#{yield(:class_text)}" %>
+  <%= link_to "キャンセル", tasks_index_path, class: "btn btn-default btn-form" %>
+<% end %>

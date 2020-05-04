@@ -1,9 +1,12 @@
-<% if model.errors.any? %>
-  <div class="alert alert-warning">
+<% if @task.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@task.errors.count, "error") %>.
+    </div>
     <ul>
-      <% model.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+    <% @task.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
     </ul>
   </div>
 <% end %>

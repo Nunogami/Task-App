@@ -16,6 +16,7 @@ class TasksController < ApplicationController
   end
   
   def new
+    @task = Task.new
   end
   
   def create
@@ -24,11 +25,11 @@ class TasksController < ApplicationController
                      user_id: @current_user.id)
     if @task.save
       flash[:success] = '新規作成に成功しました。'
+      redirect_to @task
     else
-      flash[:danger] = '新規作成に失敗しました。'
+      flash.now[:danger] = "新規作成に失敗しました。入力した内容に#{@task.errors.count}件のエラーがあります。"
+      render :new
     end
-    redirect_to tasks_index_url
-    
   end
   
   def show
@@ -42,15 +43,16 @@ class TasksController < ApplicationController
     @task.task_description = params[:task_description]
     if @task.save
       flash[:success] = '更新に成功しました。'
-      redirect_to tasks_index_url
+      redirect_to @task
     else
-      flash.now[:danger] = '更新に失敗しました。'
+      flash.now[:danger] = "更新に失敗しました。入力した内容に#{@task.errors.count}件のエラーがあります。"
       render :edit 
     end
   end
   
   def destroy
     @task.destroy
+    flash[:success] = "#{@task.task_name}のデータを削除しました。"
     redirect_to tasks_index_url
   end
  
